@@ -643,14 +643,14 @@ public class MastersController {
 			String vendorAdd1 = request.getParameter("vendorAdd1");
 			String vendorAdd2 = request.getParameter("vendorAdd2");
 			String vendorAdd3 = request.getParameter("vendorAdd3");
-			String vendorAdd4 = request.getParameter("vendorAdd4");
+			String vendorAdd4 = request.getParameter("vendorAdd4");	//Bank IFSC Code
 			String vendorState = request.getParameter("stateName");
 			String vendorCity = request.getParameter("vendorCity");
 			String vendorContactPerson = request.getParameter("vendorContactPerson");
 			String vendorMobile = request.getParameter("vendorMobile");
 			String vendorType = request.getParameter("vendorType");
 			String vendorPhone = request.getParameter("vendorPhone");
-			String approvedBy = request.getParameter("approvedBy");
+			String approvedBy = request.getParameter("approvedBy");	// Bank A/C No.
 
 			String vendorEmail = request.getParameter("vendorEmail");
 

@@ -232,21 +232,23 @@
 								<br> 
 								<div class="box-content"> 
 								
-								<div class="col-md-2">  GST NO*</div>
+									<div class="col-md-2">Bank A/C No.</div>
 									<div class="col-md-3">
-									<input id="vendorGstNo" class="form-control"
-									placeholder="Vendor Gst No" style="text-align: left;"
-									name="vendorGstNo" maxlength="15" value="${editVendor.vendorGstNo}"
-									type="text" required>
+									
+									<input id="approvedBy" class="form-control"
+									placeholder="Vendor A/C No." style="text-align: left;"
+									name="approvedBy" type="text"
+									value="${editVendor.vendorApprvBy}" maxlength="17">
+									
 									</div>
 
 									<div class="col-md-1"></div>
-									<div class="col-md-2">PAN No.*</div>
+									<div class="col-md-2">Bank IFSC Code</div>
 									<div class="col-md-3">
 										<input id="vendorAdd4" class="form-control"
-									placeholder="PAN No" style="text-align: left;"
+									placeholder="IFSC Code" style="text-align: left;"
 									name="vendorAdd4" type="text" value="${editVendor.vendorAdd4}"
-									required>
+									maxlength="11">
 
 
 									</div>
@@ -287,37 +289,12 @@
 								
 								<div class="box-content"> 
 								 
-									<div class="col-md-2">Approved BY*</div>
+									<div class="col-md-2">  GST NO*</div>
 									<div class="col-md-3">
-										<select class="form-control chosen" data-live-search="true"
-									title="Please Select" name="approvedBy" id="approvedBy"
-									required>
-									<c:choose>
-									 <c:when test="${editVendor.vendorApprvBy==1}">
-									 	<option value="1" selected>TRIL</option>
-										<option value="2">CEAT</option>
-										<option value="3">OTHER</option> 
-									 </c:when>
-									 <c:when test="${editVendor.vendorApprvBy==2}">
-									 	<option value="1" >TRIL</option>
-										<option value="2" selected>CEAT</option>
-										<option value="3">OTHER</option> 
-									 </c:when>
-									 <c:when test="${editVendor.vendorApprvBy==3}">
-									 	<option value="1" >TRIL</option>
-										<option value="2" >CEAT</option>
-										<option value="3" selected>OTHER</option> 
-									 </c:when> 
-									 <c:otherwise>
-									 
-										<option value="1" selected>TRIL</option>
-										<option value="2" >CEAT</option>
-										<option value="3" >OTHER</option> 
-									 </c:otherwise>
-									
-									</c:choose>
-									
-								</select>
+									<input id="vendorGstNo" class="form-control"
+									placeholder="Vendor Gst No" style="text-align: left;"
+									name="vendorGstNo" maxlength="15" value="${editVendor.vendorGstNo}"
+									type="text" required>
 									</div>
 									
 									<div class="col-md-1"></div>
@@ -760,7 +737,24 @@
 		 document.getElementById("vendorCode").focus();
 		 }
 	</script>
-
+<script type="text/javascript">    
+$(document).ready(function(){  
+$("#vendorAdd4").change(function () {      
+var inputvalues = $(this).val();      
+  var reg = /[A-Z|a-z]{4}[0][a-zA-Z0-9]{6}$/;    
+                if (inputvalues.match(reg)) {    
+                    return true;    
+                }    
+                else {    
+                     $(".ifsc").val("");    
+                    alert("You entered invalid IFSC code");    
+                    //document.getElementById("txtifsc").focus();    
+                    return false;    
+                }    
+});      
+    
+});    
+</script> 
 
 </body>
 </html>
